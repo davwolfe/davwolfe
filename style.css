@@ -1,185 +1,509 @@
-* {
-  margin-top: 10px;
-  margin-bottom: 10px;
-  margin-right: 0px;
-  margin-left: 0px;
-  color: #000000;
-  font-family: "Didot", "Comic Sans MS", "Helvetica Neue", sans-serif;
-  box-sizing: border-box;
+/* ==========================================================
+   Davina Wolfe — portfolio
+   Palette lives in :root below, so colors can be changed in one place
+   ========================================================== */
+
+@font-face {
+    font-family: "Fraunces";
+    src: url("fonts/fraunces.woff2") format("woff2");
+    font-weight: 100 900;
+    font-style: normal;
+    font-display: swap;
 }
 
-@media screen and (max-width: 1050px) {
-  .svg-column {
-    width: 50%;
-  }
+@font-face {
+    font-family: "Fraunces";
+    src: url("fonts/fraunces-italic.woff2") format("woff2");
+    font-weight: 100 900;
+    font-style: italic;
+    font-display: swap;
 }
 
-@media screen and (max-width: 750px) {
-  .svg-column {
-    float: left;
-    width: 100%;
-    padding: 10px;
-  }
-  .triple-column {
-    width: 100%;
-  }
+@font-face {
+    font-family: "DM Sans";
+    src: url("fonts/dm-sans.woff2") format("woff2");
+    font-weight: 100 1000;
+    font-display: swap;
 }
 
-.highlight-yellow {
-  background: linear-gradient(180deg,rgba(255,255,255, 0) 65%, #f4c2459a 65%);
+:root {
+    --champagne: #F7E7CE;
+    --white: #ffffff;
+    --black: #000000;
+    --soft-text: #4a4237;                       /* warm grey for dates and small notes */
+    --shadow: 0 10px 30px rgba(140, 105, 50, 0.14);
+
+    --serif: "Fraunces", "Times New Roman", serif;
+    --sans: "DM Sans", "Helvetica Neue", Arial, sans-serif;
 }
 
-.space {
-  margin-right: 10px;
-  margin-left: 10px;
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
 }
 
-.highlight-white {
-  background: linear-gradient(180deg,rgba(255,255,255, 0) 65%, #ffffff 65%);
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 90px;
+    -webkit-text-size-adjust: 100%;
 }
 
-.thin-highlight-white {
-  background: linear-gradient(180deg,rgba(255,255,255, 0) 80%, #ffffff 80%);
+body {
+    margin: 0;
+    background: var(--white);
+    color: var(--black);
+    font-family: var(--sans);
+    font-size: 1.0625rem;
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
 }
 
-.thin-highlight-yellow {
-  background: linear-gradient(180deg,rgba(255,255,255, 0) 80%, #f4c2459a 80%);
+h1,
+h2,
+h3,
+p {
+    margin: 0;
 }
 
 a {
-  text-decoration: none;
+    color: inherit;
+    text-decoration: none;
 }
 
-.name {
-  font-size: 500%;
-  margin-left: 5%;
-  margin-right: 5%;
-  text-align: center;
-  font-weight: bold;
+img {
+    display: inline-block;
 }
 
-.intro {
-  font-size: 150%;
-  margin-left: 5%;
-  margin-right: 5%;
-  margin-bottom: 5%;
+:focus-visible {
+    outline: 2px solid var(--black);
+    outline-offset: 4px;
+    border-radius: 6px;
 }
 
-.margin {
-  margin-left: 110px;
-  margin-right: 110px;
-  margin-top: 30px;
-  margin-bottom: 50px;
+/* ---------- Highlighter underlines ---------- */
+.highlight-yellow {
+    background: linear-gradient(180deg, transparent 62%, var(--champagne) 62%);
+    padding-inline: 0.12em;
 }
 
-.social-media {
-  display: flex;
-  padding-left: 1em;
-  padding-right: 1em;
-  padding-top: 0.6em;
-  padding-bottom: 0;
-  justify-content: center;
-  align-items: center;
+.highlight-white {
+    background: linear-gradient(180deg, transparent 62%, var(--white) 62%);
+    padding-inline: 0.12em;
 }
 
-.social-media-item {
-  padding-left: 1rem;
-  padding-right: 1rem;
+.thin-highlight-yellow {
+    background: linear-gradient(var(--champagne), var(--champagne)) no-repeat 0 100% / 100% 0.3em;
+    transition: background-size 0.2s ease;
 }
 
+a:hover .thin-highlight-yellow {
+    background-size: 100% 100%;
+}
+
+/* ---------- Nav ---------- */
 .nav-bar {
-  margin-left: 40px;
-  margin-right: 40px;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    background: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--champagne);
+}
+
+.nav-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1180px;
+    margin-inline: auto;
+    padding: 10px clamp(16px, 4vw, 40px);
+}
+
+.nav-group {
+    display: flex;
+    gap: clamp(14px, 3vw, 32px);
 }
 
 .nav-item {
-  margin-right: 20px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 1.05rem;
 }
 
-.copyright {
-  text-align: center;
+.nav-item img {
+    width: 38px;
+    height: 38px;
+    transition: transform 0.2s ease;
 }
 
-.yellow-background {
-  background: #f4c2459a;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+.nav-item:hover img {
+    transform: translateY(-3px) rotate(-4deg);
 }
 
-.white-background {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+/* ---------- Intro ---------- */
+.hero {
+    max-width: 780px;
+    margin-inline: auto;
+    padding: clamp(48px, 8vw, 96px) 24px clamp(64px, 9vw, 112px);
+    text-align: center;
+    animation: rise 0.9s ease-out both;
 }
 
-.section-title {
-  font-size: 300%;
-  text-align: center;
-  font-weight: bold;
-  margin-top: 0px;
+@keyframes rise {
+    from {
+        opacity: 0;
+        transform: translateY(14px);
+    }
 }
 
-.descTitle {
-  font-weight: bold;
-  margin-bottom: 0;
+.hero-bow {
+    width: 64px;
+    height: 64px;
 }
 
-p {
-  margin: 0;
-  margin-top: 1.5rem;
-  font-size: 1.15rem;
+.name {
+    margin-top: 8px;
+    font-family: var(--serif);
+    font-weight: 380;
+    font-size: clamp(3.2rem, 10vw, 6.5rem);
+    line-height: 1.05;
+    letter-spacing: -0.02em;
 }
 
-.bio {
-  margin-top: 0px;
+.tagline {
+    margin-top: 22px;
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: clamp(1.2rem, 2.4vw, 1.6rem);
+    color: var(--soft-text);
 }
 
-.proj-title {
-  font-size: 150%;
+.intro {
+    margin-top: 28px;
+    font-size: 1.125rem;
+    text-wrap: pretty;
 }
 
-.proj-text {
-  margin-top: 0;
-  font-style: italic;
-  padding-top: 5px;
-  font-size: 1rem;
-  margin-left: 5%;
+.intro + .intro {
+    margin-top: 16px;
+}
+
+.intro i {
+    font-family: var(--serif);
+    font-size: 1.2em;
+}
+
+.contact-line {
+    margin-top: 32px;
+    font-size: 1.125rem;
+}
+
+.email {
+    font-family: var(--serif);
+    font-size: 1.2em;
+    white-space: nowrap;
 }
 
 .icon {
-  width: 1em;
-  display: inline;
-  position: relative;
-  top: 0.75em;
+    width: 1em;
+    height: 1em;
+    vertical-align: -0.12em;
+    margin-inline: 1px;
 }
 
-.dot-icon {
-  width: 1em;
-  display: inline;
-  position: relative;
-  top: 0.85em;
+/* ---------- Sections ---------- */
+.panel {
+    padding: clamp(56px, 8vw, 96px) clamp(20px, 6vw, 110px);
+}
+
+/* champagne sections sit as soft rounded panels instead of full-width bars */
+.yellow-background {
+    background: var(--champagne);
+    max-width: 1180px;
+    margin-inline: auto;
+    border-radius: clamp(24px, 4vw, 48px);
+}
+
+@media (max-width: 1220px) {
+    .yellow-background {
+        margin-inline: 14px;
+    }
+}
+
+.section-title {
+    font-family: var(--serif);
+    font-weight: 400;
+    font-size: clamp(2.1rem, 5vw, 3.25rem);
+    line-height: 1.15;
+    letter-spacing: -0.015em;
+    text-align: center;
+    margin-bottom: clamp(28px, 4vw, 48px);
 }
 
 .title-icon {
-  width: 1em;
-  display: inline;
-  position: relative;
-  top: 0.4em;
-  margin-left: 10px;
-  margin-top: 0px;
+    width: 1em;
+    height: 1em;
+    margin-left: 12px;
+    vertical-align: -0.16em;
 }
 
-.descriptive-icon {
-  width: 1.5em;
-  display: inline;
-  position: relative;
-  margin-top: 0px;
-  margin-bottom: -10px;
+/* ---------- Cards ---------- */
+.project-card {
+    flex: 0 0 100%;
+    scroll-snap-align: start;
+    background: var(--white);
+    border-radius: 22px;
+    padding: clamp(22px, 3.5vw, 36px);
+    box-shadow: var(--shadow);
 }
 
-.svg-center {
-  text-align: center;
+.white-background .project-card {
+    background: var(--champagne);
+    box-shadow: none;
+}
+
+.white-background .project-card .thin-highlight-yellow {
+    background-image: linear-gradient(var(--white), var(--white));
+}
+
+.award-card,
+.carousel {
+    max-width: 820px;
+    margin-inline: auto;
+}
+
+.card-head {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.card-icon {
+    flex: none;
+    width: 56px;
+    height: 56px;
+}
+
+.proj-title {
+    font-family: var(--serif);
+    font-weight: 500;
+    font-size: clamp(1.3rem, 2.6vw, 1.65rem);
+    line-height: 1.25;
+}
+
+.proj-at {
+    font-weight: 400;
+    color: var(--soft-text);
+}
+
+.proj-date {
+    font-size: 0.95rem;
+    color: var(--soft-text);
+    line-height: 1.5;
+    margin-top: 2px;
+}
+
+.proj-text {
+    margin-top: 18px;
+    max-width: 62ch;
+}
+
+.proj-link {
+    margin-top: 18px;
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 1.15rem;
+}
+
+.project-card-empty {
+    text-align: center;
+    padding-block: clamp(36px, 6vw, 60px);
+}
+
+.proj-empty {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: clamp(1.4rem, 3vw, 1.9rem);
+}
+
+/* ---------- Project carousel ---------- */
+.carousel {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.carousel-track {
+    display: flex;
+    gap: 24px;
+    flex: 1;
+    min-width: 0;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    scrollbar-width: none;
+    padding: 10px 14px 34px;
+    margin: -10px -14px -34px;   /* room for the card shadow without shifting layout */
+}
+
+/* with several cards, each one is a little narrower so the next peeks in from the right */
+.carousel:not(.single) .project-card {
+    flex-basis: 84%;
+}
+
+.carousel:not(.single) .carousel-track {
+    cursor: grab;
+    scroll-padding-left: 14px;
+}
+
+/* while dragging with the mouse: follow the pointer exactly, snap when released */
+.carousel-track.dragging {
+    cursor: grabbing;
+    scroll-snap-type: none;
+    scroll-behavior: auto;
+    user-select: none;
+}
+
+.carousel-track.dragging a {
+    pointer-events: none;
+}
+
+.carousel-track::-webkit-scrollbar {
+    display: none;
+}
+
+.carousel-btn {
+    flex: none;
+    width: 44px;
+    height: 44px;
+    border: none;
+    border-radius: 50%;
+    background: var(--white);
+    box-shadow: var(--shadow);
+    font-family: var(--serif);
+    font-size: 28px;
+    line-height: 1;
+    padding-bottom: 4px;
+    cursor: pointer;
+    transition: transform 0.15s, opacity 0.15s;
+    position: relative;
+    z-index: 1;
+}
+
+.white-background .carousel-btn {
+    background: var(--champagne);
+    box-shadow: none;
+}
+
+.carousel-btn:hover:not(:disabled) {
+    transform: scale(1.1);
+}
+
+.carousel-btn:disabled {
+    opacity: 0.3;
+    cursor: default;
+}
+
+/* a carousel with only one card shows no arrows */
+.carousel.single .carousel-btn {
+    display: none;
+}
+
+.carousel-dots {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 22px;
+}
+
+.carousel-dots:empty {
+    display: none;
+}
+
+.carousel-dot {
+    width: 10px;
+    height: 10px;
+    padding: 0;
+    border: 1px solid var(--black);
+    border-radius: 50%;
+    background: transparent;
+    cursor: pointer;
+}
+
+.carousel-dot.active {
+    background: var(--black);
+}
+
+/* ---------- Footer ---------- */
+.footer {
+    padding: clamp(48px, 7vw, 80px) 24px 36px;
+    text-align: center;
+}
+
+.footer-note {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 1.5rem;
+}
+
+.social-media {
+    display: flex;
+    justify-content: center;
+    gap: 26px;
+    margin-top: 18px;
+}
+
+.social-media img {
+    width: 56px;
+    height: 56px;
+    transition: transform 0.2s ease;
+}
+
+.social-media a:hover img {
+    transform: translateY(-4px) rotate(-4deg);
+}
+
+.copyright {
+    margin-top: 36px;
+    font-size: 0.9rem;
+    color: var(--soft-text);
+}
+
+/* ---------- Small screens ---------- */
+@media (max-width: 600px) {
+    .nav-item span {
+        display: none;
+    }
+
+    .carousel-btn {
+        display: none;
+    }
+
+    .card-head {
+        align-items: flex-start;
+    }
+
+    .card-icon {
+        width: 44px;
+        height: 44px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+
+    .hero {
+        animation: none;
+    }
+
+    * {
+        transition: none !important;
+    }
 }

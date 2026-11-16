@@ -25,27 +25,46 @@
     <!-- animate this? -->
     <p class="name"><span class="highlight-yellow">Davina Wolfe</span></p>
     <p class="intro"><i> Hi!</i> I attend the University of Massachusetts - Boston, pursuing a degree in Computer Science. I love learning new things related to computer science and am always eager to expand my knowledge in this field. In the future, I hope to work on innovative projects that make technology accessible and create meaningful impact for people worldwide. Outside the classroom I love to read, workout, and indulge in my latest food cravings, right now i'm obessed with turkish kebabs!<br />Feel free to email me at <span
-        class="thin-highlight-white">dwolfe607<img class="icon" src="images/attsymbol.svg" />gmail.com or reach out through the social media platforms linked at
-    the bottom. Keep scrolling to learn more about me!
+        class="thin-highlight-white">dwolfe607<img class="icon" src="images/attsymbol.svg" />gmail.com or reach out through the social media platforms at
+    the bottom of the page. Keep scrolling to learn more about me!
     </p>
 
     <div id="projects" class="yellow-background">
         <div class="margin">
             <h2 class="section-title"><span class="highlight-white">Current Projects</span><img class="title-icon"
                     src="images/currentprojects.svg" /></h2>
-            <p class="proj-title"><b>Computer Science Portfolio</b> @ <a href="https://github.com/davwolfe"
-                    target="_blank"><span class="thin-highlight-white">GitHub</span></a> <img class="descriptive-icon"
-                    src="images/terminal.svg" /><span
-                    style="float: right;font-size: 14px;">&nbsp;Oct. 2024&#8212;Present</span></p>
-            <p class="proj-text">I'm familiar with different languages including Python, Java, C++, HTML, and CSS. I am also familiar
-                with the software Processing.</p>
+            <!-- To add a project: copy one <div class="project-card">...</div> block and paste it inside the track -->
+            <div class="carousel">
+                <button class="carousel-btn prev" aria-label="Previous project">&#8249;</button>
+                <div class="carousel-track">
+                    <div class="project-card">
+                        <p class="proj-title"><b>Computer Science Portfolio</b> @ <a href="https://github.com/davwolfe"
+                                target="_blank"><span class="thin-highlight-yellow">GitHub</span></a> <img class="descriptive-icon"
+                                src="images/terminal.svg" /><span
+                                class="proj-date">&nbsp;Oct. 2024&#8212;Present</span></p>
+                        <p class="proj-text">I'm familiar with different languages including Python, Java, C++, HTML, and CSS. I am also familiar
+                            with the software Processing.</p>
+                    </div>
+                </div>
+                <button class="carousel-btn next" aria-label="Next project">&#8250;</button>
+            </div>
+            <div class="carousel-dots"></div>
         </div>
     </div>
     <div class="white-background">
         <div class="margin">
             <h2 class="section-title"><span class="highlight-yellow">Past Projects</span><img class="title-icon"
                     src="images/archivefolder.svg" /></h2>
-            <p class="proj-title"><b>to be continued... </b></p>
+            <div class="carousel">
+                <button class="carousel-btn prev" aria-label="Previous project">&#8249;</button>
+                <div class="carousel-track">
+                    <div class="project-card">
+                        <p class="proj-title"><b>to be continued... </b></p>
+                    </div>
+                </div>
+                <button class="carousel-btn next" aria-label="Next project">&#8250;</button>
+            </div>
+            <div class="carousel-dots"></div>
         </div>
     </div>
     <div id="recognition" class="yellow-background">
@@ -71,6 +90,7 @@
         </div>
         <p class="copyright">Copyright © 2026 Davina Wolfe. All rights reserved.</p>
     </div>
+    <script src="script.js"></script>
 </body>
 
 </html>
