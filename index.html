@@ -1,95 +1,154 @@
-<!DOCTYPE html />
-<html>
+<!DOCTYPE html>
+<html lang="en">
 
 <head>
     <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Davina Wolfe is a computer science student at the University of Massachusetts Boston." />
+    <link rel="preload" href="fonts/fraunces.woff2" as="font" type="font/woff2" crossorigin />
     <link rel="stylesheet" href="style.css" />
     <link rel="shortcut icon" href="images/bow.svg" type="image/svg+xml" />
     <title>Davina Wolfe</title>
 </head>
 
 <body>
-    <div class="nav-bar">
-        <div class="float: left;">
-            <a href="index.html" class="nav-item" title="Home"><img src="images/home.svg" /></a>
-
-            <div style="float: right;">
-                <a href="#projects" class="nav-item" title="Current Projects"><img src="images/currentfolder.svg" /></a>
-                <a href="#recognition" title="Recognition"><img src="images/bow.svg" /></a>
+    <header class="nav-bar">
+        <nav class="nav-inner" aria-label="Main">
+            <a href="#top" class="nav-item" title="Home"><img src="images/home.svg" alt="" /><span>Home</span></a>
+            <div class="nav-group">
+                <a href="#projects" class="nav-item" title="Current Projects"><img src="images/currentfolder.svg"
+                        alt="" /><span>Projects</span></a>
+                <a href="#recognition" class="nav-item" title="Recognition"><img src="images/bow.svg"
+                        alt="" /><span>Recognition</span></a>
             </div>
-        </div>
-    </div>
-    <p>&nbsp;</p>
-    <p>&nbsp;</p>
-    <p>&nbsp;</p>
-    <!-- animate this? -->
-    <p class="name"><span class="highlight-yellow">Davina Wolfe</span></p>
-    <p class="intro"><i> Hi!</i> I attend the University of Massachusetts - Boston, pursuing a degree in Computer Science. I love learning new things related to computer science and am always eager to expand my knowledge in this field. In the future, I hope to work on innovative projects that make technology accessible and create meaningful impact for people worldwide. Outside the classroom I love to read, workout, and indulge in my latest food cravings, right now i'm obessed with turkish kebabs!<br />Feel free to email me at <span
-        class="thin-highlight-white">dwolfe607<img class="icon" src="images/attsymbol.svg" />gmail.com or reach out through the social media platforms at
-    the bottom of the page. Keep scrolling to learn more about me!
-    </p>
+        </nav>
+    </header>
 
-    <div id="projects" class="yellow-background">
-        <div class="margin">
+    <main>
+        <!-- ---------- Intro ---------- -->
+        <section id="top" class="hero">
+            <img class="hero-bow" src="images/bow.svg" alt="" />
+            <h1 class="name"><span class="highlight-yellow">Davina Wolfe</span></h1>
+            <p class="tagline">Computer science student at UMass Boston</p>
+            <p class="intro"><i>Hi!</i> I love learning new things in computer science and I'm always eager to
+                expand what I know. In the future, I hope to work on innovative projects that make technology
+                accessible and create meaningful impact for people worldwide.</p>
+            <p class="intro">Outside the classroom I love to read, work out, and indulge in my latest food
+                cravings. Right now I'm obsessed with Turkish kebabs!</p>
+            <!-- script.js turns this into a clickable email link; the @ stays an image so spam bots can't read it -->
+            <p class="contact-line">Feel free to email me at
+                <a class="email js-email" data-user="dwolfe607" data-domain="gmail.com" href="#contact"><span
+                        class="thin-highlight-yellow">dwolfe607<img class="icon" src="images/attsymbol.svg"
+                            alt=" at " />gmail.com</span></a>
+            </p>
+        </section>
+
+        <!-- ---------- Current projects ---------- -->
+        <section id="projects" class="panel yellow-background">
             <h2 class="section-title"><span class="highlight-white">Current Projects</span><img class="title-icon"
-                    src="images/currentprojects.svg" /></h2>
-            <!-- To add a project: copy one <div class="project-card">...</div> block and paste it inside the track -->
+                    src="images/currentprojects.svg" alt="" /></h2>
+            <!-- To add a project: copy one <div class="project-card">...</div> block and paste it inside the track.
+                 With two or more cards the section becomes a slider: the next card peeks in from the right and
+                 slides left with the arrows, dots, a mouse drag, a trackpad swipe, or the arrow keys. -->
             <div class="carousel">
                 <button class="carousel-btn prev" aria-label="Previous project">&#8249;</button>
-                <div class="carousel-track">
+                <div class="carousel-track" tabindex="0">
                     <div class="project-card">
-                        <p class="proj-title"><b>Computer Science Portfolio</b> @ <a href="https://github.com/davwolfe"
-                                target="_blank"><span class="thin-highlight-yellow">GitHub</span></a> <img class="descriptive-icon"
-                                src="images/terminal.svg" /><span
-                                class="proj-date">&nbsp;Oct. 2024&#8212;Present</span></p>
-                        <p class="proj-text">I'm familiar with different languages including Python, Java, C++, HTML, and CSS. I am also familiar
-                            with the software Processing.</p>
+                        <div class="card-head">
+                            <img class="card-icon" src="images/terminal.svg" alt="" />
+                            <div>
+                                <h3 class="proj-title">Computer Science Portfolio</h3>
+                                <p class="proj-date">Oct. 2024 &#8212; Present</p>
+                            </div>
+                        </div>
+                        <p class="proj-text">I'm familiar with different languages including Python, Java, C++, HTML,
+                            and CSS. I am also familiar with the software Processing.</p>
+                        <p class="proj-link"><a href="https://github.com/davwolfe" target="_blank" rel="noopener"><span
+                                    class="thin-highlight-yellow">See it on GitHub</span></a></p>
+                    </div>
+
+                    <!-- PLACEHOLDER cards so you can see the slider working. Replace the text with real
+                         projects, or delete these two blocks. -->
+                    <div class="project-card">
+                        <div class="card-head">
+                            <img class="card-icon" src="images/terminal.svg" alt="" />
+                            <div>
+                                <h3 class="proj-title">Second project title</h3>
+                                <p class="proj-date">Month Year &#8212; Present</p>
+                            </div>
+                        </div>
+                        <p class="proj-text">Placeholder: a sentence or two about what you built, what you used,
+                            and what you learned.</p>
+                        <p class="proj-link"><a href="https://github.com/davwolfe" target="_blank" rel="noopener"><span
+                                    class="thin-highlight-yellow">See it on GitHub</span></a></p>
+                    </div>
+                    <div class="project-card">
+                        <div class="card-head">
+                            <img class="card-icon" src="images/terminal.svg" alt="" />
+                            <div>
+                                <h3 class="proj-title">Third project title</h3>
+                                <p class="proj-date">Month Year &#8212; Present</p>
+                            </div>
+                        </div>
+                        <p class="proj-text">Placeholder: a sentence or two about what you built, what you used,
+                            and what you learned.</p>
+                        <p class="proj-link"><a href="https://github.com/davwolfe" target="_blank" rel="noopener"><span
+                                    class="thin-highlight-yellow">See it on GitHub</span></a></p>
                     </div>
                 </div>
                 <button class="carousel-btn next" aria-label="Next project">&#8250;</button>
             </div>
             <div class="carousel-dots"></div>
-        </div>
-    </div>
-    <div class="white-background">
-        <div class="margin">
+        </section>
+
+        <!-- ---------- Past projects ---------- -->
+        <section class="panel white-background">
             <h2 class="section-title"><span class="highlight-yellow">Past Projects</span><img class="title-icon"
-                    src="images/archivefolder.svg" /></h2>
+                    src="images/archivefolder.svg" alt="" /></h2>
             <div class="carousel">
                 <button class="carousel-btn prev" aria-label="Previous project">&#8249;</button>
-                <div class="carousel-track">
-                    <div class="project-card">
-                        <p class="proj-title"><b>to be continued... </b></p>
+                <div class="carousel-track" tabindex="0">
+                    <div class="project-card project-card-empty">
+                        <p class="proj-empty">to be continued&#8230;</p>
                     </div>
                 </div>
                 <button class="carousel-btn next" aria-label="Next project">&#8250;</button>
             </div>
             <div class="carousel-dots"></div>
-        </div>
-    </div>
-    <div id="recognition" class="yellow-background">
-        <div class="margin">
+        </section>
+
+        <!-- ---------- Recognition ---------- -->
+        <section id="recognition" class="panel yellow-background">
             <h2 class="section-title"><span class="highlight-white">Recognition</span><img class="title-icon"
-                    src="images/bow.svg" /></h2>
-            <p class="proj-title"><b>Deans List</b> @ <a
-                    target="_blank"><span class="thin-highlight-white">Bunker Hill CC</span></a> <img class="descriptive-icon"
-                    src="images/medal.svg" /><span
-                    style="float: right;font-size: 14px;">&nbsp;Sept 2022&#8212;May 2024</span></p>
-            <p class="proj-text">The Dean's List recognizes students with a grade point average of at least 3.00, provided that no grade lower than C was earned in any course that semester.</p>
-        </div>
-    </div>
-    <div class="margin bottom-margin">
-        <div class="footer social-media">
-            <div class="social-media-item">
-                <a href="https://www.linkedin.com/in/davina-wolfe-88097023b/" target="_blank"><img class="space"
-                        src="images/linkedinn.svg" /></a><a href="https://www.instagram.com/davinaw.lfe/"
-                    target="_blank"><img class="space" src="images/instagram.svg" /></a><a
-                    href="https://github.com/davwolfe" target="_blank"><img class="space"
-                        src="images/github.svg" /></a>      
+                    src="images/bow.svg" alt="" /></h2>
+            <div class="project-card award-card">
+                <div class="card-head">
+                    <img class="card-icon" src="images/medal.svg" alt="" />
+                    <div>
+                        <h3 class="proj-title">Dean's List <span class="proj-at">at Bunker Hill Community
+                                College</span></h3>
+                        <p class="proj-date">Sept. 2022 &#8212; May 2024</p>
+                    </div>
+                </div>
+                <p class="proj-text">The Dean's List recognizes students with a grade point average of at least 3.00,
+                    provided that no grade lower than C was earned in any course that semester.</p>
             </div>
+        </section>
+    </main>
+
+    <footer id="contact" class="footer">
+        <p class="footer-note">Let's connect</p>
+        <div class="social-media">
+            <a href="https://www.linkedin.com/in/davina-wolfe-88097023b/" target="_blank" rel="noopener"
+                title="LinkedIn"><img src="images/linkedinn.svg" alt="LinkedIn" /></a>
+            <a href="https://www.instagram.com/davinaw.lfe/" target="_blank" rel="noopener" title="Instagram"><img
+                    src="images/instagram.svg" alt="Instagram" /></a>
+            <a href="https://github.com/davwolfe" target="_blank" rel="noopener" title="GitHub"><img
+                    src="images/github.svg" alt="GitHub" /></a>
         </div>
         <p class="copyright">Copyright © 2026 Davina Wolfe. All rights reserved.</p>
-    </div>
+    </footer>
+
     <script src="script.js"></script>
 </body>
 
